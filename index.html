@@ -31,9 +31,34 @@ body {
 }
 .container { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
 
+/* BRAND SWITCHER */
+.brand-switcher {
+  position: sticky; top: 0; z-index: 200;
+  background: #0D0D0D;
+  padding: 10px 0;
+  display: flex; justify-content: center;
+}
+.brand-switcher .switcher-inner {
+  display: inline-flex;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 4px;
+}
+.brand-switcher a {
+  padding: 8px 20px;
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  transition: color .2s, background .2s;
+}
+.brand-switcher a:hover { color: #fff; }
+.brand-switcher a.active { background: #fff; color: #0D0D0D; }
+
 /* NAV */
 nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 44px; z-index: 100;
   background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
   border-bottom: 1px solid #E8E8E8;
   padding: 16px 0;
@@ -245,6 +270,14 @@ footer img { height: 24px; margin-bottom: 16px; }
 </style>
 </head>
 <body>
+
+<!-- BRAND SWITCHER -->
+<div class="brand-switcher">
+  <div class="switcher-inner">
+    <a href="index.html" class="active">ApartmentIQ</a>
+    <a href="maven.html">MavenAI</a>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
