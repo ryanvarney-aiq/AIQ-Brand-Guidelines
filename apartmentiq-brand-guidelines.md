@@ -1,9 +1,9 @@
 ---
 name: apartmentiq-brand
-description: ApartmentIQ brand guidelines, logos, and fonts for creating on-brand design assets. Use this skill whenever creating any visual asset, document, presentation, PDF, or design for ApartmentIQ or any of its products (Market Surveys, Explore Pro, Explore Pro+, Daylight). Triggers include any mention of ApartmentIQ, AIQ, Daylight, Explore Pro, Market Surveys, or requests to create branded collateral, slides, one-sheeters, social cards, or marketing materials.
+description: ApartmentIQ brand guidelines, logos, and fonts for creating on-brand design assets. Use this skill whenever creating any visual asset, document, presentation, PDF, or design for ApartmentIQ or any of its products (Market Surveys, Explore Pro, Explore Pro+, Daylight, Fee Compliance Monitor). Triggers include any mention of ApartmentIQ, AIQ, Daylight, Explore Pro, Market Surveys, Fee Compliance Monitor, or requests to create branded collateral, slides, one-sheeters, social cards, or marketing materials.
 ---
 
-# ApartmentIQ Brand Kit — Complete Reference
+# ApartmentIQ Brand Kit: Complete Reference
 
 This skill contains everything needed to create on-brand ApartmentIQ assets. It includes brand guidelines, logos, and font files. **Read this entire file before creating any asset.**
 
@@ -18,13 +18,13 @@ All asset paths are relative to this SKILL.md file. To resolve the absolute path
 1. Note the directory this SKILL.md lives in (the "skill directory").
 2. All paths below (e.g., `brand/logos/aiq-logo-dark.png`) are relative to that directory.
 3. In Python, use: `SKILL_DIR = os.path.dirname(os.path.abspath(__file__))` or resolve from the known skill install path.
-4. When working in Cowork / Claude Code, the skill directory is typically `<workspace>/.claude/skills/apartmentiq-brand/` — adapt as needed.
+4. When working in Cowork / Claude Code, the skill directory is typically `<workspace>/.claude/skills/apartmentiq-brand/`; adapt as needed.
 
 ### Mandatory Rules
 - **NEVER use system fonts, CDN fonts, or Google Fonts links.** Always register and use the .ttf files bundled in `brand/fonts/` for all asset creation (PDFs, PNGs, presentations, etc.).
 - **NEVER recreate the logo with text, shapes, or SVG approximations.** Always embed the actual logo PNGs from `brand/logos/`.
 - **NEVER substitute Inter/Inter Tight with Helvetica, Arial, or other fallback fonts** when the bundled .ttf files are available. The only acceptable fallback is when the output medium cannot load custom fonts (e.g., plain Markdown), in which case note this limitation.
-- **For HTML/React artifacts:** Use `@font-face` declarations pointing to the bundled .ttf files, or if the artifact runs in a browser sandbox without file access, use Google Fonts CDN for Inter/Inter Tight as a last resort — but prefer the bundled files whenever the medium supports them.
+- **For HTML/React artifacts:** Use `@font-face` declarations pointing to the bundled .ttf files, or if the artifact runs in a browser sandbox without file access, use Google Fonts CDN for Inter/Inter Tight as a last resort, but prefer the bundled files whenever the medium supports them.
 
 ---
 
@@ -39,7 +39,7 @@ All logo files are in the `brand/logos/` folder relative to this skill file.
 | `brand/logos/aiq-logo-light.png` | White/light logo for dark backgrounds |
 
 **Logo Rules:**
-- Always use the real PNG logo files — never recreate the logo with shapes or text
+- Always use the real PNG logo files; never recreate the logo with shapes or text
 - The logo is ~6:1 aspect ratio (width to height). Never distort this ratio
 - Render at ~150px wide for headers, ~200px for cover pages
 - Use `mask='auto'` in ReportLab to preserve transparency
@@ -100,18 +100,18 @@ SKILL_DIR = os.path.expanduser("~/.claude/skills/apartmentiq-brand")
 # Adapt as needed for your environment.
 BRAND_DIR = os.path.join(SKILL_DIR, "brand")
 
-# Inter — headers
+# Inter: headers
 pdfmetrics.registerFont(TTFont("Inter", f"{BRAND_DIR}/fonts/Inter/Inter-Regular.ttf"))
 pdfmetrics.registerFont(TTFont("Inter-Medium", f"{BRAND_DIR}/fonts/Inter/Inter-Medium.ttf"))
 pdfmetrics.registerFont(TTFont("Inter-SemiBold", f"{BRAND_DIR}/fonts/Inter/Inter-SemiBold.ttf"))
 pdfmetrics.registerFont(TTFont("Inter-Bold", f"{BRAND_DIR}/fonts/Inter/Inter-Bold.ttf"))
 
-# Inter Display — large display titles
+# Inter Display: large display titles
 pdfmetrics.registerFont(TTFont("InterDisplay-Light", f"{BRAND_DIR}/fonts/Inter/InterDisplay-Light.ttf"))
 pdfmetrics.registerFont(TTFont("InterDisplay-Thin", f"{BRAND_DIR}/fonts/Inter/InterDisplay-Thin.ttf"))
 pdfmetrics.registerFont(TTFont("InterDisplay", f"{BRAND_DIR}/fonts/Inter/InterDisplay-Regular.ttf"))
 
-# Inter Tight — body
+# Inter Tight: body
 pdfmetrics.registerFont(TTFont("InterTight", f"{BRAND_DIR}/fonts/InterTight/InterTight-400-normal.ttf"))
 pdfmetrics.registerFont(TTFont("InterTight-Medium", f"{BRAND_DIR}/fonts/InterTight/InterTight-500-normal.ttf"))
 pdfmetrics.registerFont(TTFont("InterTight-SemiBold", f"{BRAND_DIR}/fonts/InterTight/InterTight-600-normal.ttf"))
@@ -124,20 +124,21 @@ pdfmetrics.registerFont(TTFont("InterTight-Bold", f"{BRAND_DIR}/fonts/InterTight
 
 - **Authoritative and grounded.** We are the data company. Speak from earned credibility, not aspiration.
 - **Direct.** Short sentences. Lead with the point.
-- **Technically precise but never academic.** Use multifamily terminology naturally (comps, NER, leased %, concessions, rent rolls, PMS, PMC, NMHC) — the audience knows the space.
+- **Technically precise but never academic.** Use multifamily terminology naturally (comps, NER, leased %, concessions, rent rolls, PMS, PMC, NMHC); the audience knows the space.
 - **Modern.** We contrast against "legacy tools," "old data," "black boxes." Current and forward-leaning without being trendy.
 
 ### Sentence & Paragraph Style
 - Paragraphs are 1–2 sentences. Cut anything that hits 3.
 - Fragments for emphasis. "Built for this." "The end of guesswork." "Fully automated. Deeply detailed."
 - Pair a short declarative statement with a longer explanatory follow-up.
-- Use the em dash (–) for asides and inline contrast.
+- For asides and inline contrast, use commas, colons, or parentheses. Do not use em dashes.
 
 ### Word Preferences
 **Use:** automated, daily, real-time, transparent, modern, public data, proprietary, explainable, all-in-one, deep/deeply, pioneered
 **Avoid:** revolutionary, game-changing, cutting-edge, leverage (as verb), best-in-class, world-class, empower, seamless, robust, end-to-end, solution (in isolation)
 
 ### Punctuation
+- No em dashes. This is a company-wide rule across all ApartmentIQ writing. Use commas, colons, parentheses, semicolons, or separate sentences instead. (En dashes in numeric ranges like 20–30% are fine.)
 - No exclamation marks in headlines. Rarely in body copy.
 - Headlines use sentence case, not title case or ALL CAPS.
 - Full-sentence headlines end with a period. Fragment headlines get no punctuation.
@@ -162,13 +163,14 @@ Each product uses its own gradient on the accent word. Structure: short statemen
 **Market Surveys:** Purple → gold gradient on accent word
 **Explore Pro / Pro+:** Purple → teal gradient on accent word
 **Daylight:** Pink → orange/gold gradient on accent word, plus the repeating "by design" motif
+**Fee Compliance Monitor:** Lavender → blue → cyan gradient on accent word
 
 ### Daylight's "by design" Pattern
 Daylight slides follow a unique headline structure: **[Gradient adjective] + "by design"** as a two-line headline, with a supporting sentence beneath.
 
 Examples: "**Transparent** by design" · "**Precise** by design" · "**Strategic** by design" · "**Modern** by design"
 
-The gradient word is rendered in the Daylight warm gradient (pink → orange). "by design" is always in `text-primary`, regular weight. **This is Daylight-specific — do not use for other products.**
+The gradient word is rendered in the Daylight warm gradient (pink → orange). "by design" is always in `text-primary`, regular weight. **This is Daylight-specific; do not use for other products.**
 
 ### Headline Rules (All Products)
 - Maximum one gradient-accented word/phrase per headline
@@ -180,7 +182,7 @@ The gradient word is rendered in the Daylight warm gradient (pink → orange). "
 
 ## Color Palette
 
-### Brand Purple — Primary Accent (All Products)
+### Brand Purple: Primary Accent (All Products)
 | Token | Hex | Usage |
 |---|---|---|
 | `aiq-purple` | `#6B53FD` | Accent headlines, accent word color, growth lines, left-border indicators |
@@ -188,7 +190,7 @@ The gradient word is rendered in the Daylight warm gradient (pink → orange). "
 ### Teal (Links)
 | Token | Hex | Usage |
 |---|---|---|
-| `aiq-teal` | `#0097A7` | Hyperlinks, table of contents links — limited use |
+| `aiq-teal` | `#0097A7` | Hyperlinks, table of contents links: limited use |
 
 ### Default Theme
 When no specific product is mentioned, or content spans multiple products, **default to the Explore Pro / Pro+ theme** (purple → lavender → teal). This is the most versatile gradient. Use for cross-product collateral, company-wide announcements, general release notes, investor materials, and any asset where the product context is ambiguous.
@@ -196,21 +198,27 @@ When no specific product is mentioned, or content spans multiple products, **def
 ### Product Gradients
 Each product has its own gradient for hero headlines, section dividers, and stat callouts.
 
-**Market Surveys** — Purple → mauve → peach → gold
+**Market Surveys:** Purple → mauve → peach → gold
 ```
 linear-gradient(90deg, #6B53FD, #B88DD4, #D4A373, #E8B84B)
 ```
 
-**Explore Pro / Pro+** — Purple → lavender → teal/cyan
+**Explore Pro / Pro+:** Purple → lavender → teal/cyan
 ```
 linear-gradient(90deg, #7C6BCC, #96A3D9, #6BC5B8)
 ```
 
-**Daylight** — Hot pink → salmon → peach → gold
+**Daylight:** Hot pink → salmon → peach → gold
 ```
 linear-gradient(90deg, #E84393, #F0768B, #F5A672, #EDBE6A)
 ```
 This is the warmest gradient in the system. It should feel distinct from Market Surveys by leaning pink, not purple.
+
+**Fee Compliance Monitor:** Lavender → blue → cyan
+```
+linear-gradient(90deg, #C1B2F4, #7DB0F0, #80E3F5)
+```
+The coolest gradient in the system. Use it to signal the clarity and trust of compliance monitoring.
 
 ### Text Colors
 | Token | Hex | When to use |
@@ -226,10 +234,10 @@ This is the warmest gradient in the system. It should feel distinct from Market 
 ### Backgrounds
 | Token | Value | When to use |
 |---|---|---|
-| `bg-primary` | `#FFFFFF` | Default — most surfaces |
+| `bg-primary` | `#FFFFFF` | Default: most surfaces |
 | `bg-warm` | `#F9F7F4` | Some slides, subtle warmth |
 | `bg-subtle` | `#F2F2F2` | Feature cards, stat cards |
-| `bg-dark` | `#1A1A2E` | Customer quote banners, social proof — white text |
+| `bg-dark` | `#1A1A2E` | Customer quote banners, social proof: white text |
 | `bg-muted-purple` | Light purple/lavender wash | Map texture backgrounds, decorative underlays |
 
 ### Daylight-Specific Colors
@@ -264,7 +272,7 @@ This is the warmest gradient in the system. It should feel distinct from Market 
 | SemiBold (600) | `heading` | Section headlines, feature card titles |
 | Medium (500) | `subhead` | Subheads, numbered list labels, supporting headlines |
 | Regular (400) | `body` | Body copy, descriptions, feature details |
-| Light (300) | `caption` | Sparse use — large-format text where lightness is needed |
+| Light (300) | `caption` | Sparse use: large-format text where lightness is needed |
 
 ### Sizing Hierarchy
 Scale to the medium. Maintain these ratios:
@@ -273,7 +281,7 @@ Scale to the medium. Maintain these ratios:
 - **Subhead:** ~40–50% of hero
 - **Body:** Standard readable size for the medium
 - **Caption/label:** Smallest tier, always in a muted color
-- **Stat callouts:** Can match or exceed hero size — they are visual anchors
+- **Stat callouts:** Can match or exceed hero size; they are visual anchors
 
 ### Font Hierarchy (Specific Sizes)
 | Element | Font | Size |
@@ -307,7 +315,7 @@ All spacing values are multiples of 8.
 | `space-3xl` | 80–96px | Hero section top padding, breathing room around section dividers |
 
 ### Vertical Rhythm Rules
-- **Headline → Subhead:** 24px (tight — they're a visual unit)
+- **Headline → Subhead:** 24px (tight; they're a visual unit)
 - **Subhead → Body copy:** 32px
 - **Body copy → Next content block:** 48px
 - **Section → Section:** 64px minimum
@@ -383,7 +391,7 @@ Side-by-side cards with chevron (›) separators. Each card: icon, bold title, s
 Dark background band, white text. Large decorative open-quote mark. Mixed regular/bold for emphasis.
 
 ### Card Cascade
-Product UI screenshots overlapping at slight angles — a signature visual pattern.
+Product UI screenshots overlapping at slight angles, a signature visual pattern.
 
 ### Decorative Elements
 - **Gradient-stroke circles:** Soft gradient borders around numbered items and icons
@@ -396,21 +404,21 @@ Product UI screenshots overlapping at slight angles — a signature visual patte
 - Heavy drop shadows
 - Abstract blob shapes or mesh gradients
 - Stock photography of apartments, cities, or people
-- Bright solid-color backgrounds (keep white, off-white, or subtle gray — only `bg-dark` for intentional contrast sections)
-- Drop shadows on cards or containers — use flat fills, subtle borders, and whitespace
+- Bright solid-color backgrounds (keep white, off-white, or subtle gray; only `bg-dark` for intentional contrast sections)
+- Drop shadows on cards or containers; use flat fills, subtle borders, and whitespace
 
 ---
 
 ## Product Visual Summary
 
-| Element | ApartmentIQ (Platform) | Market Surveys | Explore Pro/Pro+ | Daylight |
-|---|---|---|---|---|
-| Accent color | `#6B53FD` purple | Purple → gold gradient | Purple → teal gradient | Pink → orange gradient |
-| Headline accent | Purple word | Gradient word | Gradient word | Gradient adjective + "by design" |
-| Numbered circles | Purple/gold soft fill | Purple/gold soft fill | Teal/purple soft outlines | Pink/peach soft fill |
-| Pill shapes | Mixed teal + purple | — | Teal + purple outlines | Pink + orange outlines |
-| Icon circles | Purple outline | Purple/gold outline | Purple/teal outline | Pink/peach circle fill |
-| UI screenshots | Mixed product cards | Survey table cards (cascading) | Dashboard with charts | Pricing tables, lease data |
+| Element | ApartmentIQ (Platform) | Market Surveys | Explore Pro/Pro+ | Daylight | Fee Compliance Monitor |
+|---|---|---|---|---|---|
+| Accent color | `#6B53FD` purple | Purple → gold gradient | Purple → teal gradient | Pink → orange gradient | Lavender → cyan gradient |
+| Headline accent | Purple word | Gradient word | Gradient word | Gradient adjective + "by design" | Gradient word |
+| Numbered circles | Purple/gold soft fill | Purple/gold soft fill | Teal/purple soft outlines | Pink/peach soft fill | Lavender/cyan soft outlines |
+| Pill shapes | Mixed teal + purple | N/A | Teal + purple outlines | Pink + orange outlines | Lavender + cyan outlines |
+| Icon circles | Purple outline | Purple/gold outline | Purple/teal outline | Pink/peach circle fill | Lavender/cyan outline |
+| UI screenshots | Mixed product cards | Survey table cards (cascading) | Dashboard with charts | Pricing tables, lease data | Fee audit tables, compliance flags |
 
 ---
 
@@ -424,7 +432,7 @@ Product UI screenshots overlapping at slight angles — a signature visual patte
 | Units covered daily | 40M+ |
 | Historical data depth | 5+ years |
 | Property websites sourced | 1.1M+ |
-| New products (2026) | Revenue Management, Explore Pro |
+| New products (2026) | Revenue Management, Explore Pro, Fee Compliance Monitor |
 | Work model | Fully remote |
 | Key events | Rentapalooza, Sales Kickoff (SKO) |
 
@@ -434,8 +442,8 @@ Product UI screenshots overlapping at slight angles — a signature visual patte
 
 ### Text Must Fit Its Container
 This is the single most common production defect. Before finalizing any layout:
-1. Measure, don't assume — Inter is wider than Helvetica at the same point size
-2. Account for wrapping in height — add 20–30% buffer
+1. Measure, don't assume; Inter is wider than Helvetica at the same point size
+2. Account for wrapping in height; add 20–30% buffer
 3. Stat callouts: always insert a space between number and unit
 4. Right-edge overflow: reduce font size or widen container by 0.1–0.2" as safety margin
 5. Column-constrained titles: use 24pt or less (not 28pt+)
@@ -462,7 +470,7 @@ Always render to images and inspect before delivering. Check:
 - Uneven spacing between similar elements
 - Low-contrast text on similar backgrounds
 - Connectors centered in gaps between cards
-- All text fits within containers — no clipping or overflow
+- All text fits within containers; no clipping or overflow
 
 ---
 
@@ -514,7 +522,7 @@ Before publishing any ApartmentIQ asset, verify:
 - [ ] No more than 3 content blocks per slide
 - [ ] No text block longer than 3 lines without visual break
 - [ ] Page/slide edge margins at least 64px
-- [ ] Passes the squint test — distinct clusters with clear white channels
+- [ ] Passes the squint test; distinct clusters with clear white channels
 - [ ] No stock photography
 - [ ] No drop shadows on cards or containers
 - [ ] Every text element fits inside its container
